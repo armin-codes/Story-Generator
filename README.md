@@ -1,5 +1,5 @@
 Python Story generator 
-Don't click on this!! --->  twitter.com/armin_codes
+Don't click on this!! --->  www.twitter.com/armin_codes
 
 So first of all... this project isn't compeleted YET , and i'll be updating it every day, so stay tuned :) !!
 
