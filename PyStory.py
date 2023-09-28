@@ -1,98 +1,120 @@
 import time
 
-# Don't click on this -> https://twitter.com/ArminS56183 Enjoy your creative stories!
-# and share your opinions with us on Twitter!
-
-print('\nin the year of...\n')
-time.sleep(1)
-
-year = input("Enter the story's year\n: ")
-
-while year == '':
-    print('Uh come on!! tell us the year!.\n')
-    time.sleep(0.5)
-    year = input(": ")
-
-time.sleep(0.6)
-
-print(f"\nin the year of {year}, There was a...\n"
-      )
-
-gender = input("Enter the character's gender \n: ")
-
-while gender not in ['man', 'woman']:
-    doubt = input("Do you really want to be something other than human? \n1. Yes\n2. No\n: ")
-    time.sleep(1)
-    if doubt == '1':
-        print('0k...')
-        time.sleep(0.5)
-        break
-    elif doubt == '2':
-        print('Then...')
-        time.sleep(0.5)
-        gender = input("Enter the character's gender\n1. Man\n 2. Woman\n: ")
-
-time.sleep(0.3)
-
-print(f'\nThere was a {gender} called...\n')
-
-name = input("Enter the character's name:\n")
-cap_name = (name.capitalize())
-while name == '':
-    print('Sorry... What??\n')
-    name = input("Enter the character's name:\n")
-
-time.sleep(0.5)
-
-print(f'\nin the year of {year} There was a {gender} called {cap_name}\n')
-time.sleep(1)
-
-print(f'{cap_name} lived in...')
-places = [1, 2, 3]
-
-while True:
-    try:
-        live = int(input('''
-1. Town
-2. City
-3. Village
-: '''))
-        if live not in places:
-            raise ValueError('Invalid input')
-    except ValueError:
-        print('Where??')
-    else:
-        break
-
-if live == 1:
-    live = 'Town'
-elif live == 2:
-    live = 'City'
-elif live == 3:
-    live = 'Village'
-country = input(f"What's the name of the {live}?")
-
-while country == '':
-    print(f"Come on!! Tell us where {name} lives.")
-    country = input('Enter the country name\n:')
-time.sleep(1)
-print(f'\n{name.capitalize()}...\n')
 time.sleep(2)
-friends_amount = ['1', '2']
+# intro
+print(
+	'\nWelcome to the new Coffee machine! My name is  " Beniko "\n"Balanced, Enhancing, Natural, Interactive, Kind, and Optimized"\nand i am a friendly Artificial barista! :)')
+coffee_options = ['Espresso', 'Cappuccino', 'Latte', 'Americano']
 
-friend = input(f'How many friends {name} has?\n1. zero\n2. one\n:')
-while friend not in friends_amount:
-        print('Invalid input. Please enter one of the following options: zero, one.\n')
-        friend = input(f'How many friends {name} has?\n1. zero\n2. one\n:')
-if friend == '1':
-    print(f'{name} has no friend')
-else:
-    friend = input(f'{name} had a friend called... \n: ')
-    print(f'{name} has a friend called {friend}\n')
+coffee_beans = ['Arabica', 'Robusta', '60 40']
 
-go = input(f"""{name} wanted to:
-1. Go to work
-2. Go to friend's place
-3. Go to the jungle
-4. Send a mail to {friend}
-5. Go around the {live}""")
+milk_options = ['Whole Milk', 'Almond Milk', 'Soy Milk', 'Nothing']
+
+flavorings = ['Vanilla', 'Caramel', 'Hazelnut', 'Mocha', 'Nothing']
+
+sizes = ['Small', 'Medium', 'Large']
+
+prep_times = [10, 25, 30, 26]  # Every prep time is different based on the coffee type!
+
+time.sleep(5.5)
+
+input('[Enter] to continue')  # Of course , input!
+# Name of the user
+name = input('''----------------------------------
+So , What should i call you? ''')
+
+if not name:  # if The User's name is invalid , Beniko will call them 'No one'
+	name = 'No one'
+
+for i, option in enumerate(coffee_options):  # Coffee options
+	print(f'{i + 1}. {option}')
+# Order or Choices
+choice = int(input('''
+----------------------------------
+Alright ,Which coffee would you like to order? '''))
+print(f'Ok, {coffee_options[choice - 1]}')
+# Advanced adjustment like Coffee bean or type of milk etc.
+advanced = input('''----------------------------------
+Do you want advanced adjustments (yup/nope)? 
+''')
+if advanced.lower() == 'yup':
+	print('''----------------------------------
+Ok! Here are our coffee bean options:
+    ''')
+	for i, option in enumerate(coffee_beans):
+		print(f'{i + 1}. {option}')
+	bean_choice = int(input('''
+----------------------------------
+Which type of coffee beans would you like? I recommend "60 40" 
+but you can choose whatever you want! '''))
+	print(f'Ok, {coffee_beans[bean_choice - 1]}')
+	print('''----------------------------------
+Here are our milk options:
+''')
+	for i, option in enumerate(milk_options):
+		print(f'{i + 1}. {option}')
+	milk_choice = int(input('''
+----------------------------------
+Which type of milk would you like? '''))
+	print(f'Me Love {milk_options[milk_choice - 1]}!')
+	print('''----------------------------------
+Here are our delicious flavoring options:
+''')
+	for i, option in enumerate(flavorings):
+		print(f'{i + 1}. {option}')
+	flavor_choice = int(input('''
+----------------------------------
+Which flavoring would you like? '''))
+	print('Roger that')
+
+print('''----------------------------------
+Here are our size options:
+''')
+for i, option in enumerate(sizes):
+	print(f'{i + 1}. {option}')
+size_choice = int(input('''
+----------------------------------
+Which size would you like? '''))
+print(f'Ok, {sizes[size_choice - 1]}')
+# And here is extra shots of espresso option for when you want to get the full energy
+extra_shots = int(input('''----------------------------------
+How many extra shots of espresso would you like (0-2)? '''))
+sugar = -1  # Amount of everything before choosing
+coffee = -1
+milk = -1
+
+while sugar < 0 or sugar > 5 or coffee < 0 or coffee > 5 or milk < 0 or milk > 5:  # Keep looping until the user enters valid values for sugar, coffee, and milk.
+	if sugar < 0 or sugar > 5:
+		sugar = int(input("How many teaspoons of sugar would you like (0-5)? "))
+	if coffee < 0 or coffee > 5:
+		coffee = int(input("How many shots of coffee would you like (0-5)? "))
+	if milk < 0 or milk > 5:
+		milk = int(input("How many ounces of milk would you like (0-5)? "))
+	if sugar == 0 and coffee == 0 and milk == 0:
+		print(f"You haven't selected anything, {name}. Let's try again!")
+		sugar = -1
+		coffee = -1
+		milk = -1
+print(
+	f"Preparing your {sugar} teaspoons of sugar, {coffee} shots of coffee, and {milk} ounces of milk...")  # Print a message confirming the order.
+time.sleep(4)  # Sleep for a few seconds to simulate the time it takes to make the coffee.
+print(f"Your coffee is ready, {name}!")  # Print a message that the coffee is ready.
+if sugar > 2:
+	print(
+		f"Thank you for your purchase! Enjoy your really sweet cup of coffee!")  # Check if the user ordered a sweet coffee.
+elif coffee > 3:
+	print(f"Wow, {name}! You have a lot of caffeine in your coffee!")  # Check if the user ordered a strong coffee.
+elif milk > 0 and coffee_options[choice - 1] in ['Espresso','Americano']:  # Check if the user ordered a coffee with milk.
+	print(f"Are you sure you're old enough to drink coffee? Enjoy your coffee with milk!")
+elif milk == 0 and coffee_options[choice - 1] in ['Latte','Cappuccino']:  # Check if the user ordered latte or cappuccino without milk.
+	print(f"We'll add some milk for you. It's delicious in a coffee!")
+
+else:  # Otherwise, the coffee is just right.
+	print(f"Thank you for your purchase! Enjoy your delicious coffee!")
+
+feedback = input("What were your thoughts on this program? ")  # Get the user's feedback.
+
+# Write the feedback to a file. not important I just used it to anyone who used this program , the feedback get saved, so I can review it later!
+with open("feedback.txt", "a") as f:
+	f.write(f"{feedback}\n")
+print(f"Thank you for your feedback, {name}! Have a nice day!")  # Thank the user for their feedback.
