@@ -15,5 +15,5 @@ also the user can share their creative stories with others!
 having different genres for each story
 Share the stories to a website and winning prizes for good stories
 More options(Duh!)
-
+heres the link to this project in tweetr: https://x.com/armin_codes/status/1706915811401564620?s=20
 ***Overall, I think you have great stories on your hands. I can't wait to see how they'll turns out!***
