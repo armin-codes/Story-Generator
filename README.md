@@ -1,4 +1,4 @@
-# Python Story generator 
+# 📖 Python Story generator 
 
 # **www.twitter.com/armin_codes**
 
